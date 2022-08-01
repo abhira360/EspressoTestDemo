@@ -13,11 +13,14 @@
         android:id="@+id/tv_helloWorld"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="24dp"
         android:padding="10dp"
         android:hint="Some"
-        android:text="Hello World!"
+        android:text="https://stackoverflow.com/questions/2734270/how-to-make-links-in-a-textview-clickable"
         android:visibility="visible"
-        android:contentDescription="ab"
+        android:linksClickable="true"
+        android:autoLink="web"
+        android:contentDescription="text"
         android:tag="1"
         android:alpha="0.9"
         android:enabled="false"
@@ -25,9 +28,50 @@
         android:textColor="@color/black"
         android:clickable="true"
 
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_main"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_margin="24dp"
+        android:scaleType="centerCrop"
+        android:contentDescription="image"
+        android:tag="2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_helloWorld"
+        app:srcCompat="@drawable/random" />
+
+    <EditText
+        android:id="@+id/et_main"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="24dp"
+        android:padding="10dp"
+        android:background="@null"
+        android:hint="Enter something"
+        android:contentDescription="editText"
+        android:tag="3"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_main" />
+
+    <Button
+        android:id="@+id/btn_main"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="24dp"
+        android:text="Button"
+        android:contentDescription="button"
+        android:tag="4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_main" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
