@@ -7,117 +7,151 @@
     android:id="@+id/cl_main"
     tools:context=".MainActivity">
 
-
-    <LinearLayout
-        android:id="@+id/ll_main"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.499">
+        app:layout_constraintVertical_bias="0.0">
 
-        <TextView
-            android:id="@+id/tv_helloWorld"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="24dp"
-            android:alpha="0.9"
-            android:autoLink="web"
-            android:clickable="true"
-            android:contentDescription="text"
-            android:hint="Some"
-            android:inputType="text"
-            android:linksClickable="true"
-            android:maxLines="1"
-            android:padding="10dp"
-            android:tag="1"
-            android:text="https://stackoverflow.com/questions/2734270/how-to-make-links-in-a-textview-clickable"
-            android:textColor="@color/black"
-            android:visibility="visible"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:id="@+id/iv_main"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:layout_margin="24dp"
-            android:contentDescription="image"
-            android:scaleType="centerCrop"
-            android:tag="2"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_helloWorld"
-            app:srcCompat="@drawable/random" />
-
-        <EditText
-            android:id="@+id/et_main"
+        <LinearLayout
+            android:id="@+id/ll_main"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="24dp"
-            android:background="@null"
-            android:contentDescription="editText"
-            android:hint="Enter something"
-            android:imeOptions="actionNext"
-            android:inputType="text"
-            android:padding="10dp"
-            android:tag="3"
-            android:focusable="true"
-            android:selectAllOnFocus="true"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/iv_main" />
-
-        <Button
-            android:id="@+id/btn_main"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="24dp"
-            android:background="@drawable/bg_test"
-            android:contentDescription="button"
-            android:tag="4"
-            android:text="Button"
+            android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_multilineText" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.499">
 
-        <TextView
-            android:id="@+id/tv_ellipsizeText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="24dp"
-            android:ellipsize="end"
-            android:focusable="false"
-            android:maxLines="1"
-            android:padding="10dp"
-            android:text="btw: the actual word  is made-up. It's called  and is a common way to form computer jargon. The noun is  which I assume you know, and it's made into a verb by adding the  ending which means , so you can infer that to  is . – Michael EdenfieldJun 20, 2013 at 15:23"
-            app:layout_constraintBottom_toTopOf="@+id/btn_main"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_main" />
+            <TextView
+                android:id="@+id/tv_helloWorld"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="24dp"
+                android:alpha="0.9"
+                android:autoLink="web"
+                android:clickable="true"
+                android:contentDescription="text"
+                android:hint="Some"
+                android:inputType="text"
+                android:linksClickable="true"
+                android:maxLines="1"
+                android:padding="10dp"
+                android:tag="1"
+                android:text="https://stackoverflow.com/questions/2734270/how-to-make-links-in-a-textview-clickable"
+                android:textColor="@color/black"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/tv_multilineText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="24dp"
-            android:background="@drawable/bg_test"
-            android:padding="10dp"
-            android:enabled="true"
-            android:focusable="true"
-            android:text="hasMultilineText() has no argument. It returns a matcher, which matches the TextView that has any multi line text. The sample code is as follows,"
-            app:layout_constraintBottom_toTopOf="@+id/btn_main"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_ellipsizeText" />
+            <ImageView
+                android:id="@+id/iv_main"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_margin="24dp"
+                android:contentDescription="image"
+                android:scaleType="centerCrop"
+                android:tag="2"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_helloWorld"
+                app:srcCompat="@drawable/random" />
+
+            <EditText
+                android:id="@+id/et_main"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="24dp"
+                android:background="@null"
+                android:contentDescription="editText"
+                android:hint="Enter something"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:padding="10dp"
+                android:tag="3"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/iv_main" />
+
+            <Button
+                android:id="@+id/btn_main"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="24dp"
+                android:background="@drawable/bg_test"
+                android:contentDescription="button"
+                android:tag="4"
+                android:text="Button"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_multilineText" />
+
+            <TextView
+                android:id="@+id/tv_ellipsizeText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="24dp"
+                android:ellipsize="end"
+                android:focusable="false"
+                android:maxLines="1"
+                android:padding="10dp"
+                android:text="btw: the actual word  is made-up. It's called  and is a common way to form computer jargon. The noun is  which I assume you know, and it's made into a verb by adding the  ending which means , so you can infer that to  is . – Michael EdenfieldJun 20, 2013 at 15:23"
+                app:layout_constraintBottom_toTopOf="@+id/btn_main"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/et_main" />
+
+            <TextView
+                android:id="@+id/tv_multilineText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="24dp"
+                android:background="@drawable/bg_test"
+                android:enabled="true"
+                android:focusable="false"
+                android:padding="10dp"
+                android:text="hasMultilineText() has no argument.www.google.com. It returns a matcher, which matches the TextView that has any multi line text. The sample code is as follows,"
+                app:layout_constraintBottom_toTopOf="@+id/btn_main"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_ellipsizeText" />
+
+            <TextView
+                android:id="@+id/tv_openLinks"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="24dp"
+                android:padding="10dp"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                android:autoLink="web"
+                android:text="https://www.google.com/" />
 
 
-    </LinearLayout>
+            <EditText
+                android:id="@+id/et_mainSecond"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="24dp"
+                android:padding="10dp"
+                android:hint="Enter Some text.."
+                android:textSize="24sp"
+                android:textColor="@color/black"
+                android:background="@null"/>
+
+
+        </LinearLayout>
+
+    </ScrollView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
