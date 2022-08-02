@@ -2,9 +2,12 @@ package com.example.emptytesting
 
 import android.text.InputType
 import android.util.Log
+import android.view.inputmethod.EditorInfo
 import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.action.ViewActions.typeText
+import androidx.test.espresso.action.ViewActions.*
 import androidx.test.espresso.assertion.ViewAssertions.matches
+import androidx.test.espresso.matcher.LayoutMatchers.hasEllipsizedText
+import androidx.test.espresso.matcher.LayoutMatchers.hasMultilineText
 import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.rules.ActivityScenarioRule
@@ -235,39 +238,60 @@ class BasicTest {
     }
 
     @Test
-    fun hasEllipsizedText() {
-        //not working
-        val test = onView(withId(R.id.tv_helloWorld))
+    fun hasEllipsizedTextTest() {
+        //working fine
+        val test = onView(withId(R.id.tv_ellipsizeText))
+        test.check(matches(hasEllipsizedText()))
+
+        // not working if it dont have ellipsized text,it will not work just by having ellipsize attribute
+//        val editTextTest = onView(withId(R.id.et_main))
+//        editTextTest.check(matches(hasEllipsizedText()))
+
     }
 
     @Test
-    fun hasMultilineText() {
-        //not working
+    fun hasMultilineTextTest() {
+        //working and works for textview only
+
+        val multilineTextTest = onView(withId(R.id.tv_multilineText))
+        multilineTextTest.check(matches(hasMultilineText()))
+
+        //doesn't work for editText
+//        val multilineEditTextTest = onView(withId(R.id.et_main))
+//        multilineEditTextTest.check(matches(hasMultilineText()))
 
     }
 
     @Test
-    fun hasBackGround() {
+    fun hasBackGroundTest() {
         // not working
-        val test = onView(withId(R.id.tv_helloWorld))
+        val test = onView(withId(R.id.iv_main))
         test.check(matches(hasBackground(R.drawable.bg_test)))
     }
 
     @Test
-    fun hasErrorText() {
-        //will test in edittext
-    }
-
-    @Test
-    fun hasImeAction() {
-        // will test in edittext
-    }
-
-    @Test
-    fun supportsInputsMethods() {
+    fun hasErrorTextTest() {
         //working
-        val test = onView(withId(R.id.tv_helloWorld))
-        test.check(matches(supportsInputMethods()))
+        // only for editText
+        val test = onView(withId(R.id.et_main))
+        test.check(matches(hasErrorText("This field is required")))
+    }
+
+    @Test
+    fun hasImeActionTest() {
+        // working
+        //only for editText
+        val test = onView(withId(R.id.et_main))
+        test.check(matches(hasImeAction(EditorInfo.IME_ACTION_NEXT)))
+    }
+
+    @Test
+    fun supportsInputsMethodsTest() {
+        //working
+
+        //works only for edittext
+        val etTest = onView(withId(R.id.et_main))
+        etTest.check(matches(supportsInputMethods()))
     }
 
     @Test
@@ -280,7 +304,7 @@ class BasicTest {
     @Test
     fun isDisplayedAtLeast() {
         //working
-        val test = onView(withId(R.id.cl_main))
+        val test = onView(withId(R.id.tv_multilineText))
         test.check(matches(isDisplayingAtLeast(80)))
 
     }
@@ -288,42 +312,45 @@ class BasicTest {
     @Test
     fun isCompleteDisplayedTest() {
         //working
-        val test = onView(withId(R.id.cl_main))
+        val test = onView(withId(R.id.tv_ellipsizeText))
         test.check(matches(isCompletelyDisplayed()))
     }
 
     @Test
     fun isEnabledTest() {
         //working
-        val test = onView(withId(R.id.tv_helloWorld))
+        val test = onView(withId(R.id.tv_multilineText))
         test.check(matches(isEnabled()))
     }
 
     @Test
     fun isFocusableTest() {
         //working
-        val test = onView(withId(R.id.tv_helloWorld))
+        val test = onView(withId(R.id.tv_multilineText))
         test.check(matches(isFocusable()))
     }
 
     @Test
     fun hasFocusTest() {
         //will test on edittext
-        val test = onView(withId(R.id.tv_helloWorld))
+        //working
+        val test = onView(withId(R.id.et_main))
+        test.perform(typeText("has Focus"))
         test.check(matches(hasFocus()))
     }
 
     @Test
     fun isClickableTest() {
         //working
-        val test = onView(withId(R.id.tv_helloWorld))
+        val test = onView(withId(R.id.et_main))
         test.check(matches(isClickable()))
     }
 
     @Test
     fun isSelectableTest() {
         //will work on selectable view
-        val test = onView(withId(R.id.tv_helloWorld))
+        //not working
+        val test = onView(withId(R.id.et_main))
         test.check(matches(isSelected()))
     }
 
@@ -350,22 +377,25 @@ class BasicTest {
     @Test
     fun withParentTest() {
         //working
-        val test = onView(withId(R.id.cl_main))
-        test.check(matches(withParent(withId(R.id.tv_helloWorld))))
+        val test = onView(allOf(
+            withParent(withId(R.id.cl_main)),
+            withChild(withId(R.id.tv_helloWorld))
+        ))
     }
 
     @Test
     fun hasSiblingTest() {
         //working still have to test
         val test = onView(withId(R.id.tv_helloWorld))
-        test.check(matches(hasSibling(withId(R.id.tv_helloWorld))))
+        test.check(matches(hasSibling(withId(R.id.iv_main))))
+
     }
 
     @Test
     fun withChildTest() {
         //working
         val test = onView(withId(R.id.cl_main))
-        test.check(matches(withChild(withId(R.id.tv_helloWorld))))
+        test.check(matches(withChild(withId(R.id.ll_main))))
     }
 
     @Test
