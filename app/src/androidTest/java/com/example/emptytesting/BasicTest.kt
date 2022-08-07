@@ -233,7 +233,10 @@ class BasicTest {
     @Test
     fun hasTextColorTest() {
         //working
-        val test = onView(ViewMatchers.hasTextColor(R.color.black))
+        val test = onView(allOf(
+            withId(R.id.tv_helloWorld),
+            hasTextColor(R.color.black)
+        ))
         test.check(matches(isDisplayed()))
     }
 
