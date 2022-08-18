@@ -32,7 +32,7 @@ class WebViewTestCases {
     fun checkWebElementsTest() {
 
         onWebView()
-            .withElement(findElement(Locator.LINK_TEXT,"http://www.w3.org/2000/svg"))
+            .withElement(findElement(Locator.LINK_TEXT,"Sign in"))
             .perform(webClick())
         Thread.sleep(3000)
 

@@ -6,22 +6,24 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
+import com.example.emptytesting.databinding.ActivityLoginBinding
+import com.example.emptytesting.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        val editText = findViewById<EditText>(R.id.et_main)
-        if(editText.length() ==0) {
-            editText.error = "This field is required"
-        }
 
-        Log.d("root", editText.rootView.toString())
-        val button = findViewById<Button>(R.id.btn_main)
+//        val msg = intent.getStringExtra("user")
+//        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
 
-        button.setOnClickListener {
+        binding.btnMain.setOnClickListener {
             val firstActivity = Intent(this, FirstActivity::class.java)
             startActivity(firstActivity)
         }

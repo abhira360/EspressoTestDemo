@@ -1,12 +1,16 @@
 package com.example.emptytesting
 
 import android.view.View
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.test.espresso.UiController
 import androidx.test.espresso.ViewAction
 import androidx.test.espresso.ViewInteraction
+import androidx.test.espresso.matcher.BoundedDiagnosingMatcher
 import androidx.test.espresso.matcher.ViewMatchers.isAssignableFrom
+import org.hamcrest.Description
 import org.hamcrest.Matcher
+
 
 class MyCustomMatchers {
 
@@ -34,4 +38,21 @@ class MyCustomMatchers {
         return text
 
     }
-}
+
+    fun hasDrawable(): Matcher<View?> {
+
+        return object : BoundedDiagnosingMatcher<View?, ImageView?>(ImageView::class.java) {
+
+            override fun describeMoreTo(description: Description) {
+                description.appendText("has drawable")
+            }
+            override fun matchesSafely(
+                item: ImageView?,
+                mismatchDescription: Description?
+            ): Boolean {
+                return item?.drawable != null
+            }
+        }
+    }}
+
+

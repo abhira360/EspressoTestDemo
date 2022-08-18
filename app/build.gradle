@@ -29,6 +29,9 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {
@@ -43,6 +46,14 @@ dependencies {
 
     //webView
     androidTestImplementation 'androidx.test.espresso:espresso-web:3.4.0'
+    // intents
+    androidTestImplementation 'androidx.test.espresso:espresso-intents:3.4.0'
+
     androidTestImplementation('androidx.test:runner:1.4.0')
     androidTestImplementation('androidx.test:rules:1.4.0')
+
+    implementation('com.google.code.gson:gson:2.8.9')
+
+    //glide
+    implementation 'com.github.bumptech.glide:glide:4.13.2'
 }

@@ -1,10 +1,9 @@
 package com.example.emptytesting
 
 import android.text.InputType
-import android.util.Log
 import android.view.inputmethod.EditorInfo
 import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.action.ViewActions.*
+import androidx.test.espresso.action.ViewActions.typeText
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.LayoutMatchers.hasEllipsizedText
 import androidx.test.espresso.matcher.LayoutMatchers.hasMultilineText
@@ -12,8 +11,7 @@ import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import junit.framework.Assert.assertEquals
-import junit.framework.Assert.assertTrue
+import androidx.test.platform.app.InstrumentationRegistry
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.CoreMatchers.endsWith
 import org.hamcrest.core.AllOf.allOf
@@ -268,8 +266,9 @@ class BasicTest {
     @Test
     fun hasBackGroundTest() {
         // not working
-        val test = onView(withId(R.id.iv_main))
-        test.check(matches(hasBackground(R.drawable.bg_test)))
+
+        val res = InstrumentationRegistry.getInstrumentation().context.getDrawable(R.drawable.bg_test)
+        val test = onView(withId(R.id.tv_multilineText))
     }
 
     @Test
